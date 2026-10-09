@@ -1,0 +1,13 @@
+# Bundle patch for dsh-agent-dev-workflow.
+#
+# Loader YAML syntax: an `insert` appends plugin rows; `config` is passed to apply(ctx, config).
+#
+# `name` must be the module name resolvable AFTER INSTALL -- i.e. this package's own
+# package.json `name`. The loader resolves the bare specifier from the profile, so it must
+# match exactly ("dsh-agent-dev-workflow").
+#
+# To disable without uninstalling, either turn the bundle off in the Plugins page, or set
+# config: { enabled: false } here.
+- insert:
+    - id: agent-dev-workflow
+      name: dsh-agent-dev-workflow

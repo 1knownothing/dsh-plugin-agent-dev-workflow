@@ -1,0 +1,36 @@
+{
+  "name": "dsh-agent-dev-workflow",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "通用 Agent 开发流程（8 阶段流水线 + 门禁 + 独立验证）作为一个可开关的 DSH 插件：启用后对所有会话、所有项目生效。",
+  "keywords": [
+    "dsh-bundle",
+    "skill",
+    "agent-workflow",
+    "verification",
+    "spec-driven"
+  ],
+  "meta": {
+    "title": "Agent Dev Workflow",
+    "description": "把「需求→实现→验收」固化成 8 阶段流水线：先定义可判真假的验收标准，再由独立验证者复核（写的人不许自己验），失败按 A–E 分类回流。启用后所有对话、所有项目可用。零依赖、零 DSH 版本耦合。"
+  },
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "assets",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

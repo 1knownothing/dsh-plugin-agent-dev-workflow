@@ -1,0 +1,3 @@
+# Keep bytes exactly as written: this package is installed from a local path, and any
+# checkout-time line-ending rewriting would change the asset bytes the plugin reads.
+* -text
