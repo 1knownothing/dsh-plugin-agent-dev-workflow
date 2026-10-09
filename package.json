@@ -32,7 +32,9 @@
     "cordis.patch.yml",
     "icon.svg",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "verify.mjs",
+    "check-manifest.mjs"
   ],
   "dsh": {
     "bundle": {
