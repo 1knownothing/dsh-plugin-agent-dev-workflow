@@ -102,6 +102,8 @@ node check-manifest.mjs     # 清单检查：兼容性门槛 + 仓库占位符�
 
 ## 发布到 npm + DSH Plugin Hub
 
+
+> 逐步手册（含失败对策表）见 [PUBLISH.md](PUBLISH.md)。
 发布到社区 Hub（`dshpluginhub.ai`）需要四步，**其中两步只能由你执行**（需要你的 npm 账号和 GitHub 仓库）。
 
 ### 第 0 步：把仓库地址换成你自己的
