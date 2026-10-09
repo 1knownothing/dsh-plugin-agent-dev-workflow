@@ -16,9 +16,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/REPLACE-WITH-YOUR-GITHUB-USERNAME/dsh-agent-dev-workflow.git"
+    "url": "git+https://github.com/1knownothing/dsh-plugin-agent-dev-workflow.git"
   },
-  "homepage": "https://github.com/REPLACE-WITH-YOUR-GITHUB-USERNAME/dsh-agent-dev-workflow",
+  "homepage": "https://github.com/1knownothing/dsh-plugin-agent-dev-workflow",
   "engines": {
     "node": ">=22"
   },
@@ -45,7 +45,7 @@
       "displayName": "Agent Dev Workflow",
       "summary": "把「需求→实现→验收」固化成 8 阶段流水线的可开关插件，启用后所有会话、所有项目可用。",
       "description": "注册一个通用 Agent 开发流程 skill：S1 需求澄清（验收标准必须可判真假）→ S2 现状勘查（结论带 文件:行号）→ S3 设计与决策 → S4 任务切片 → S5 实现 → S6 独立验证（写的人不许自己验）→ S7 审查验收（三态裁决）→ S8 固化教训（人类否决变成可重放校验）。本插件不读取也不写用户数据；它在加载时只读取自己包内的 assets/SKILL.md，之后按需读取包内 references/ 与 assets/templates/。不联网、不执行外部命令。零依赖、不 import 任何 @deepseek-ai/*，因此不受 DSH 升级影响。",
-      "homepage": "https://github.com/REPLACE-WITH-YOUR-GITHUB-USERNAME/dsh-agent-dev-workflow",
+      "homepage": "https://github.com/1knownothing/dsh-plugin-agent-dev-workflow",
       "categories": [
         "community",
         "workflow"
