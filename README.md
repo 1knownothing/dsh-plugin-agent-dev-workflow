@@ -91,11 +91,54 @@ provider。rank 用 `BUNDLED_SKILL_RANK = 600`（内联常量，见 `@deepseek-a
 
 ```powershell
 cd D:\1Anewproject\dev\dsh-plugin-agent-dev-workflow
-node verify.mjs
+node verify.mjs             # 功能自测：34 项
+node check-manifest.mjs     # 清单检查：兼容性门槛 + 仓库占位符是否还在
 ```
 
-覆盖 34 项：模块契约、provider 注册、summary 字段、rank、description 的 500 字符上限、
+`verify.mjs` 覆盖：模块契约、provider 注册、summary 字段、rank、description 的 500 字符上限、
 `get()` 返回的正文（不含 frontmatter）、所有被引用资源存在、以及**资产缺失时必须抛错**。
+
+---
+
+## 发布到 npm + DSH Plugin Hub
+
+发布到社区 Hub（`dshpluginhub.ai`）需要四步，**其中两步只能由你执行**（需要你的 npm 账号和 GitHub 仓库）。
+
+### 第 0 步：把仓库地址换成你自己的
+
+`package.json` 里的 `repository` / `homepage` / `dsh.hub.homepage` 现在还是占位符
+（`REPLACE-WITH-YOUR-GITHUB-USERNAME`）。Hub 的校验会**拒绝没有公开 GitHub 仓库的包**。
+
+**注意**：包名 `dsh-agent-dev-workflow` 在 npm 上可能已被占用，发布前用
+`npm view dsh-agent-dev-workflow version` 确认；被占用就改 `package.json` 的 `name`
+（同时改 `cordis.patch.yml` 里 `insert[].name` 保持一致）。
+
+### 第 1 步：你来做 —— 登录 npm
+
+```powershell
+npm adduser          # 或 npm login
+npm whoami           # 应打印你的用户名
+```
+
+### 第 2 步：本地校验（已通过，可复跑）
+
+```powershell
+npx --yes @dsh-plugin-hub/cli validate .
+```
+
+期望输出：`Valid plugin: dsh-agent-dev-workflow@1.0.0`（会有一个"建议加截图"的警告，不影响发布）。
+
+### 第 3 步：你来做 —— 发布
+
+```powershell
+npm pack --dry-run   # 先看会打包什么（应为 17 个文件、约 36 kB）
+npm publish --access public
+```
+
+### 第 4 步：收录到 Hub
+
+发布后 **Hub 每小时自动同步收录**。想更快可在 Hub 的插件页手动提交包名。
+之后 claim（绑定 GitHub App）就能在 Dashboard 里编辑展示信息、截图、分类。
 
 ---
 
